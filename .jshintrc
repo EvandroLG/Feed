@@ -1,0 +1,12 @@
+{
+    "browser": true,
+    "strict": true,
+    "es3": true,
+    "curly": true,
+    "quotmark": "simple",
+    "undef": true,
+
+    "globals": {
+        "P": true
+    }
+}
