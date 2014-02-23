@@ -1,10 +1,14 @@
-(function (root) {
+(function() {
+
   'use strict';
 
-  var jsonp = function(url, callback) {
+  var root = this;
+
+  var jsonp = function(context, url, callback) {
     root.F = {};
+
     root.F.callback = function(data) {
-      callback(data.responseData);
+      callback.call(context, data.responseData);
     };
 
     var script = document.createElement('script');
@@ -13,35 +17,33 @@
   };
 
   var Feed = function(params) {
-    this._cachedVariables(params);
-    this._request();
-  };
+    var that = this;
 
-  Feed.prototype = {
-    _cachedVariables: function(params) {
+    var cachedVariables = function(params) {
       var hasURL = this.url = params.url;
 
       if (!hasURL) {
         throw 'You need pass URL like parameter!';
       }
-
+ 
       this.limit = params.limit || 10;
       this.callback = params.callback || function() {};
-    },
+    }.call(that, params);
 
-    _request: function() {
+    var request = function() {
       var urlGoogle = 'http://ajax.googleapis.com/ajax/services/feed/' +
                       'load?v=1.0&num={{ NUM }}&callback=F.callback&q={{ URL }}&_=123';
 
       var url = urlGoogle.replace('{{ URL }}', encodeURIComponent(this.url))
                          .replace('{{ NUM }}', this.limit);
 
-      jsonp(url, this.callback);
-    }
+      jsonp(this.context, url, this.callback);
+
+    }.call(that);
   };
 
   root.Feed = function(params) {
     return new Feed(params);
   };
 
-}(window));
+}).call(this);
