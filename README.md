@@ -27,7 +27,7 @@ var render = function(posts) {
 };
 
 window.Feed({
-  url: 'http://www.bossame.com.br/feed/',
+  url: 'http://rss1.smashingmagazine.com/feed/',
   number: 3,
   callback: render
 });
