@@ -11,6 +11,7 @@ Feed is compatible with the following browsers/versions:
 * IE 6+
 
 ## Parameters
+* **context** <code>Object</code> (<code>window</code> by default)
 * **url** <code>String</code> (<code>undefined</code> by default)
 * **number** <code>Number</code> (it's the total of posts <code>10</code> by default)
 * **callback** <code>Function</code> (<code>Function</code> by default)
