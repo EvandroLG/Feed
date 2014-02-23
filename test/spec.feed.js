@@ -8,7 +8,17 @@ describe('feed', function() {
 
         var feed =  Feed(params);
 
-        expect(feed[field]).toEqual(value || 10);
+        var expects = {
+          limit: function() {
+            expect(feed[field]).toEqual(value || 10);            
+          },
+
+          context: function() {
+            expect(feed[field]).toEqual(value || window);
+          }
+        };
+
+        expects[field]();
       };
     });
 
@@ -38,6 +48,14 @@ describe('feed', function() {
 
     it('if is not passed limit parameter, should define number like 10', function() {
       this.verifyProperty('limit', undefined);
+    });
+
+    it('should accept context like parameter', function() {
+      this.verifyProperty('context', {});
+    });
+
+    it('if is not passed context parameter, should define context like window', function() {
+      this.verifyProperty('context', undefined);
     });
 
     it('should accept callback like parameter', function() {});
