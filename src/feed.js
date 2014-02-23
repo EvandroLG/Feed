@@ -1,11 +1,12 @@
+/*
+  * Feed - A client-side library that work like a Feed Reader
+  * http://github.com/evandrolg/p
+  * author: Evandro Leopoldino Goncalves <evandrolgoncalves@gmail.com>
+  * http://github.com/evandrolg
+  * License: MIT
+*/
+
 (function() {
-  /*
-    * Feed - A client-side library that work like a Feed Reader
-    * http://github.com/evandrolg/p
-    * author: Evandro Leopoldino Goncalves <evandrolgoncalves@gmail.com>
-    * http://github.com/evandrolg
-    * License: MIT
-  */
 
   'use strict';
 
