@@ -47,7 +47,6 @@
                          .replace('{{ NUM }}', this.limit);
 
       jsonp(this.context, url, this.callback);
-
     }.call(that);
   };
 

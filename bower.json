@@ -1,0 +1,21 @@
+{
+  "name": "Feed",
+  "version": "1.0.0",
+  "homepage": "https://github.com/EvandroLG/Feed",
+  "authors": [
+    "evandrolg"
+  ],
+  "description": "A client-side library that work like a Feed Reader, returning all datas of a post - title, text, link, etc",
+  "main": "src/feed.min.js",
+  "keywords": [
+    "feed",
+    "rss",
+    "feed reader",
+    "reader"
+  ],
+  "ignore": [
+    "**/.*",
+    "test"
+  ],
+  "license": "MIT"
+}
