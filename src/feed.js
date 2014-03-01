@@ -34,7 +34,7 @@
         throw 'You need pass URL like parameter!';
       }
  
-      this.context = params.context || window;
+      this.context = params.context || root;
       this.limit = params.limit || 10;
       this.callback = params.callback || function() {};
     }.call(that, params);
