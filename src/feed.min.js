@@ -1,6 +1,6 @@
 /*
   * Feed - A client-side library that work like a Feed Reader
-  * http://github.com/evandrolg/p
+  * http://github.com/evandrolg/Feed
   * author: Evandro Leopoldino Goncalves <evandrolgoncalves@gmail.com>
   * http://github.com/evandrolg
   * License: MIT
