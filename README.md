@@ -19,11 +19,11 @@ Feed is compatible with the following browsers/versions:
 **Example**
 ```js
 var render = function(posts) {
-  posts.feed.entries.forEach(element, index) {
+  posts.feed.entries.forEach(function (element, index) {
     console.log(element.title);
     console.log(element.content);
     console.log(element.link);
-  };
+  });
 };
 
 window.Feed({
