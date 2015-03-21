@@ -40,7 +40,7 @@
     }.call(that, params);
 
     var request = function() {
-      var urlGoogle = 'http://ajax.googleapis.com/ajax/services/feed/' +
+      var urlGoogle = 'https://ajax.googleapis.com/ajax/services/feed/' +
                       'load?v=1.0&num={{ NUM }}&callback=F.callback&q={{ URL }}&_=123';
 
       var url = urlGoogle.replace('{{ URL }}', encodeURIComponent(this.url))
