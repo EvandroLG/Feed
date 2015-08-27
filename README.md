@@ -1,6 +1,8 @@
 # Feed
 A client-side library that work like a Feed Reader, returning all datas of a post - title, text, link, etc
 
+The library calls [Google's Feed API](https://developers.google.com/feed/v1/jsondevguide) internally.
+
 ## Browser Compatibility
 Feed is compatible with the following browsers/versions:
 * Google Chrome
