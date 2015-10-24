@@ -1,6 +1,12 @@
 {
-  "name": "Feed",
+  "name": "feed-js",
+  "author": "evandrolg",
+  "repository": "evandrolg/feed",
   "version": "1.0.0",
+  "main": "src/feed.js",
+  "keywords": ["feed", "rss", "front-end"],
+  "Licence": "MIT",
+
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-contrib-jshint": "~0.6.3",
