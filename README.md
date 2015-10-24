@@ -12,6 +12,20 @@ Feed is compatible with the following browsers/versions:
 * Opera
 * IE 6+
 
+## Instalation
+To install Feed, execute:
+
+```shell
+  npm install feed-js
+```
+
+Or Bower too:
+```shell
+  bower install feed
+```
+
+Or simply pick up the file from src directory.
+
 ## Parameters
 * **context** <code>Object</code> (<code>window</code> by default)
 * **url** <code>String</code> (<code>undefined</code> by default)
