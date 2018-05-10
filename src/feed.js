@@ -6,22 +6,24 @@
   * License: MIT
 */
 
-(function() {
+(function(root, doc) {
 
   'use strict';
 
-  var root = this;
-
+  var script = null;
   var jsonp = function(context, url, callback) {
-    root.F = {};
+    root.F = root.F || {};
 
     root.F.callback = function(data) {
-      callback.call(context, data.responseData);
+      callback.call(context, data.query.results);
     };
 
-    var script = document.createElement('script');
-    script.src = url;
-    document.getElementsByTagName('head')[0].appendChild(script);
+    if (!script) {
+      script = doc.createElement('script');
+      doc.getElementsByTagName('head')[0].appendChild(script);
+    }
+
+    script.setAttribute('src', url);
   };
 
   var Feed = function(params) {
@@ -40,11 +42,12 @@
     }.call(that, params);
 
     var request = function() {
-      var urlGoogle = 'https://ajax.googleapis.com/ajax/services/feed/' +
-                      'load?v=1.0&num={{ NUM }}&callback=F.callback&q={{ URL }}&_=123';
+      var query = "select * from rss where url='{{ URL }}' LIMIT {{ NUM }}"
+                  .replace('{{ URL }}', this.url)
+                  .replace('{{ NUM }}', this.limit);
 
-      var url = urlGoogle.replace('{{ URL }}', encodeURIComponent(this.url))
-                         .replace('{{ NUM }}', this.limit);
+      var url = 'https://query.yahooapis.com/v1/public/yql?q={{ QUERY }}&format=json'
+                .replace('{{ QUERY }}', query);
 
       jsonp(this.context, url, this.callback);
     }.call(that);
@@ -54,4 +57,4 @@
     return new Feed(params);
   };
 
-}).call(this);
+}(window, document));
