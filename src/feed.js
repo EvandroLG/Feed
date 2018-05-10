@@ -12,18 +12,16 @@
 
   var script = null;
   var jsonp = function(context, url, callback) {
-    root.F = root.F || {};
+    var generatedfn = 'jsonp' + Math.round(Date.now() + Math.random() * 1000001);
 
-    root.F.callback = function(data) {
+    root[generatedfn] = function(data) {
       callback.call(context, data.query.results);
+      delete root[generatedfn];
     };
 
-    if (!script) {
-      script = doc.createElement('script');
-      doc.getElementsByTagName('head')[0].appendChild(script);
-    }
-
-    script.setAttribute('src', url);
+    script = doc.createElement('script');
+    doc.getElementsByTagName('head')[0].appendChild(script);
+    script.setAttribute('src', url + '&callback=' + generatedfn);
   };
 
   var Feed = function(params) {
