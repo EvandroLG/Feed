@@ -1,7 +1,7 @@
 # Feed
-A client-side library that work like a Feed Reader, returning all datas of a post - title, text, link, etc
+A client-side library that makes easy to parse a XML feed to json
 
-The library calls [Google's Feed API](https://developers.google.com/feed/v1/jsondevguide) internally.
+`Feed` calls [YQL](https://developer.yahoo.com/yql/) internally.
 
 ## Browser Compatibility
 Feed is compatible with the following browsers/versions:
