@@ -38,7 +38,7 @@
   };
 
   Feed.prototype.request = function() {
-    var query = "select * from rss where url='{{ URL }}' limit {{ NUM }}"
+    var query = 'select * from rss where url="{{ URL }}" limit {{ NUM }}'
       .replace('{{ URL }}', this.url)
       .replace('{{ NUM }}', this.limit);
 

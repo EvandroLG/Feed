@@ -2,8 +2,8 @@
   "name": "feed-js",
   "author": "evandrolg",
   "repository": "evandrolg/feed",
-  "version": "1.0.0",
-  "main": "src/feed.js",
+  "version": "2.0.0",
+  "main": "feed.js",
   "keywords": [
     "feed",
     "rss",
@@ -11,7 +11,7 @@
   ],
   "Licence": "MIT",
   "devDependencies": {
-    "jshint": "^2.9.5",
+    "eslint": "^4.19.1",
     "uglify": "^0.1.5"
   }
 }
