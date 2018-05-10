@@ -19,6 +19,11 @@ To install Feed, execute:
   npm install feed-js
 ```
 
+Or yarn:
+```shell
+  yarn add feed-js
+```
+
 Or Bower too:
 ```shell
   bower install feed
@@ -35,15 +40,14 @@ Or simply pick up the file from src directory.
 **Example**
 ```js
 var render = function(posts) {
-  posts.feed.entries.forEach(function (element, index) {
+  posts.item.forEach(function (element) {
     console.log(element.title);
-    console.log(element.content);
     console.log(element.link);
   });
 };
 
 window.Feed({
-  url: 'http://rss1.smashingmagazine.com/feed/',
+  url: 'https://news.ycombinator.com/rss',
   number: 3,
   callback: render
 });
