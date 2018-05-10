@@ -1,9 +1,13 @@
 .SILENT:
 
-install: install_node install_npm
+JSHINT=./node_modules/jshint/bin/jshint
+UGLIFY=./node_modules/uglify-js/bin/uglifyjs 
 
-install_node:
-	brew install node
+install:
+	npm install
 
-install_npm:
-	curl https://npmjs.org/install.sh | sudo sh
+lint:
+	$(JSHINT) feed.js
+
+minify:
+	$(UGLIFY) feed.js --mangle --output feed.min.js
