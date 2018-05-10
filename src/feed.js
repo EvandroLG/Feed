@@ -25,34 +25,30 @@
   };
 
   var Feed = function(params) {
-    var that = this;
+    this.url = params.url;
 
-    var cachedVariables = function(params) {
-      var hasURL = this.url = params.url;
+    if (!this.url) {
+      throw 'You need pass URL like parameter!';
+    }
 
-      if (!hasURL) {
-        throw 'You need pass URL like parameter!';
-      }
- 
-      this.context = params.context || root;
-      this.limit = params.limit || 10;
-      this.callback = params.callback || function() {};
-    }.call(that, params);
+    this.context = params.context || root;
+    this.limit = params.limit || 10;
+    this.callback = params.callback || function() {};
+  };
 
-    var request = function() {
-      var query = "select * from rss where url='{{ URL }}' LIMIT {{ NUM }}"
-                  .replace('{{ URL }}', this.url)
-                  .replace('{{ NUM }}', this.limit);
+  Feed.prototype.request = function() {
+    var query = "select * from rss where url='{{ URL }}' LIMIT {{ NUM }}"
+      .replace('{{ URL }}', this.url)
+      .replace('{{ NUM }}', this.limit);
 
-      var url = 'https://query.yahooapis.com/v1/public/yql?q={{ QUERY }}&format=json'
-                .replace('{{ QUERY }}', query);
+    var url = 'https://query.yahooapis.com/v1/public/yql?q={{ QUERY }}&format=json'
+      .replace('{{ QUERY }}', query);
 
-      jsonp(this.context, url, this.callback);
-    }.call(that);
+    jsonp(this.context, url, this.callback);
   };
 
   root.Feed = function(params) {
-    return new Feed(params);
+    return new Feed(params).request();
   };
 
 }(window, document));
