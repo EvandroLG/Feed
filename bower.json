@@ -1,12 +1,12 @@
 {
   "name": "Feed",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "homepage": "https://github.com/EvandroLG/Feed",
   "authors": [
     "evandrolg"
   ],
-  "description": "A client-side library that work like a Feed Reader, returning all datas of a post - title, text, link, etc",
-  "main": "src/feed.min.js",
+  "description": "Library that makes easy to parse an RSS feed in your client-side.",
+  "main": "feed.js",
   "keywords": [
     "feed",
     "rss",

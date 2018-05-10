@@ -1,5 +1,5 @@
 # Feed
-A client-side library that makes easy to parse a XML feed to json
+Library that makes easy to parse an RSS feed in your client-side.
 
 `Feed` calls [YQL](https://developer.yahoo.com/yql/) internally.
 
