@@ -10,8 +10,9 @@
 
   'use strict';
 
-  var script = null;
-  var jsonp = function(context, url, callback) {
+  root.F = root.F || {};
+
+  root.F.jsonp = function(context, url, callback) {
     var generatedfn = 'jsonp' + Math.round(Date.now() + Math.random() * 1000001);
 
     root[generatedfn] = function(data) {
@@ -19,7 +20,7 @@
       delete root[generatedfn];
     };
 
-    script = doc.createElement('script');
+    var script = doc.createElement('script');
     doc.getElementsByTagName('head')[0].appendChild(script);
     script.setAttribute('src', url + '&callback=' + generatedfn);
   };
@@ -37,14 +38,14 @@
   };
 
   Feed.prototype.request = function() {
-    var query = "select * from rss where url='{{ URL }}' LIMIT {{ NUM }}"
+    var query = "select * from rss where url='{{ URL }}' limit {{ NUM }}"
       .replace('{{ URL }}', this.url)
       .replace('{{ NUM }}', this.limit);
 
     var url = 'https://query.yahooapis.com/v1/public/yql?q={{ QUERY }}&format=json'
       .replace('{{ QUERY }}', query);
 
-    jsonp(this.context, url, this.callback);
+    root.F.jsonp(this.context, url, this.callback);
   };
 
   root.Feed = function(params) {
