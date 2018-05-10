@@ -1,5 +1,5 @@
 # Feed
-Library that makes easy to parse an RSS feed in your client-side.
+Library that makes easy to parse a RSS feed in your client-side.
 
 `Feed` calls [YQL](https://developer.yahoo.com/yql/) internally.
 
