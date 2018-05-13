@@ -1,5 +1,5 @@
 # Feed
-Library that makes easy to parse a RSS feed in your client-side.
+A library that makes easy to parse a RSS feed in your client-side.
 
 `Feed` calls [YQL](https://developer.yahoo.com/yql/) internally.
 
@@ -34,7 +34,7 @@ Or simply pick up the file from src directory.
 ## Parameters
 * **context** <code>Object</code> (<code>window</code> by default)
 * **url** <code>String</code> (<code>undefined</code> by default)
-* **number** <code>Number</code> (it's the total of posts <code>10</code> by default)
+* **limit** <code>Number</code> (it's the total of posts <code>10</code> by default)
 * **callback** <code>Function</code> (<code>Function</code> by default)
 
 **Example**
@@ -48,7 +48,7 @@ var render = function(posts) {
 
 window.Feed({
   url: 'https://news.ycombinator.com/rss',
-  number: 3,
+  limit: 3,
   callback: render
 });
 ```
